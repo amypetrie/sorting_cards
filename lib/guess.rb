@@ -16,15 +16,18 @@ attr_reader :card_guess, :card
 
 #returns the guess
   def response
-    @card_guess
+    card_array = card_guess.split(" ")
+    value = card_array[0].capitalize
+    suit = card_array[2].capitalize
+    "#{value} of #{suit}"
   end
 
   def correct?
-    card_guess == card
+    self.response == card.return_card
   end
 
   def feedback
-    if self.correct == true
+    if self.correct? == true
       p "Correct!"
     else
       p "Incorrect."
