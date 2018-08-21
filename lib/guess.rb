@@ -2,36 +2,22 @@ require 'pry'
 
 class Guess
 
-attr_reader :card_guess, :card
+attr_reader :response, :card
 
-  def initialize(card_guess, card)
-    @card_guess = card_guess
+  def initialize(response, card)
+    @response = response
     @card = card
   end
 
-#returns the actual card that corresponds to the guess
-  def card
-    @card
-  end
-
-#returns the guess
-  def response
-    card_array = card_guess.split(" ")
-    value = card_array[0].capitalize
-    suit = card_array[2].capitalize
-    "#{value} of #{suit}"
-  end
-
   def correct?
-    self.response == card.return_card
+    response.upcase == card.return_card.upcase
   end
 
   def feedback
     if self.correct? == true
-      p "Correct!"
+      "Correct!"
     else
-      p "Incorrect."
+      "Incorrect."
     end
   end
-
 end

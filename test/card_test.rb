@@ -1,4 +1,3 @@
-require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
@@ -17,7 +16,11 @@ class CardTest < Minitest::Test
 
   def test_it_has_a_value
     card_1 = Card.new("King", "Hearts")
-    assert_equal "King", card_1l.value
+    assert_equal "King", card_1.value
   end
 
+  def test_return_card
+    card_10 = Card.new("3", "Diamonds")
+    assert_equal "3 of Diamonds", card_10.return_card
+  end
 end
