@@ -5,6 +5,7 @@ attr_reader :value, :suit
   def initialize(value, suit)
     @value = value
     @suit = suit
+    @total_card_value = total_card_value
   end
 
   def return_card

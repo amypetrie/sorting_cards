@@ -1,28 +1,32 @@
 class Deck
 
-attr_reader :cards
+  attr_reader :cards
 
   def initialize(cards)
-    @cards = cards
+    @cards = cards.to_ary
   end
 
   def count
-    cards.to_ary.count
+    @cards.to_ary.count
   end
 
   def sort
-    value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"]
-    suit = ["Clubs", "Diamonds", "Hearts", "Spades"]
-    sorted = []
-    cards.each do |card|
-      new_index = cards.rindex(card) + 1
-      if card.value < cards[new_index].value.to_s
-        sorted << card
-      else
+    counter = cards.count - 1
+    loop do 
+    counter.times do
+    final = []
+    cards.each_index do |i|
+      final = []
+      if i > cards.count - 1
         break
+      elsif cards[i].total_card_value > cards[i+1].total_card_value
+        final << cards[i]
+      else
+        final << cards[i+1]
+        binding.pry
       end
     end
-    sorted
+
   end
 
 end
