@@ -3,7 +3,7 @@ class Deck
   attr_reader :cards
 
   def initialize(cards)
-    @cards = cards.to_ary
+    @cards = cards
   end
 
   def count
@@ -21,7 +21,7 @@ class Deck
         else
         end
       end
-      break if not switch
+    break if switch == false
     end
     return cards
   end

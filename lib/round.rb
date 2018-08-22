@@ -1,7 +1,6 @@
-require 'pry'
 class Round
 
-attr_reader :deck, :guesses
+attr_reader :deck, :guesses, :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -36,6 +35,6 @@ attr_reader :deck, :guesses
   def percent_correct
     percent = number_correct.to_f / guesses.length.to_f
     percent = percent * 100
-    percent.to_i
+    return percent.to_i
   end
 end
