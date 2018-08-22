@@ -23,6 +23,6 @@ class Deck
       end
       break if not switch
     end
-    cards
+    return cards
   end
 end
