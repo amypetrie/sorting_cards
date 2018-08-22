@@ -12,21 +12,17 @@ class Deck
 
   def sort
     counter = cards.count - 1
-    loop do 
-    counter.times do
-    final = []
-    cards.each_index do |i|
-      final = []
-      if i > cards.count - 1
-        break
-      elsif cards[i].total_card_value > cards[i+1].total_card_value
-        final << cards[i]
-      else
-        final << cards[i+1]
-        binding.pry
+    loop do
+      switch = false
+      counter.times do |i|
+        if cards[i].total_card_value > cards[i+1].total_card_value
+         cards[i], cards[i + 1] = cards[i + 1], cards[i]
+         switch = true
+        else
+        end
       end
+      break if not switch
     end
-
+    cards
   end
-
 end
