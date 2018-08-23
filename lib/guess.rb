@@ -18,5 +18,5 @@ attr_reader :response, :card
       "Incorrect."
     end
   end
-  
+
 end

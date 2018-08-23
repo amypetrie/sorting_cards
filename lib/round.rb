@@ -10,10 +10,13 @@ attr_reader :deck, :guesses, :number_correct
 
   def current_card
     deck.cards[0]
+    unless guesses.length > 0
+    deck.cards[guesses.length]
+    end
   end
 
   def record_guess(hash)
-    card = deck.cards[@guesses.length]
+    card = self.current_card
     guess = "#{hash[:value]} of #{hash[:suit]}"
     new_guess = Guess.new(guess, card)
     @guesses << new_guess

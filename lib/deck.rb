@@ -7,7 +7,7 @@ class Deck
   end
 
   def count
-    @cards.to_ary.count
+    @cards.count
   end
 
   def sort
@@ -25,4 +25,5 @@ class Deck
     end
     return cards
   end
+
 end
