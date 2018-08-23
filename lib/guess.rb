@@ -1,5 +1,3 @@
-require 'pry'
-
 class Guess
 
 attr_reader :response, :card
@@ -20,4 +18,5 @@ attr_reader :response, :card
       "Incorrect."
     end
   end
+
 end

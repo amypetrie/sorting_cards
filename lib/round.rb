@@ -1,7 +1,6 @@
-require 'pry'
 class Round
 
-attr_reader :deck, :guesses
+attr_reader :deck, :guesses, :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -11,10 +10,13 @@ attr_reader :deck, :guesses
 
   def current_card
     deck.cards[0]
+    unless guesses.length > 0
+    deck.cards[guesses.length]
+    end
   end
 
   def record_guess(hash)
-    card = deck.cards[@guesses.length]
+    card = self.current_card
     guess = "#{hash[:value]} of #{hash[:suit]}"
     new_guess = Guess.new(guess, card)
     @guesses << new_guess
@@ -36,6 +38,6 @@ attr_reader :deck, :guesses
   def percent_correct
     percent = number_correct.to_f / guesses.length.to_f
     percent = percent * 100
-    percent.to_i
+    return percent.to_i
   end
 end

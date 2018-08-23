@@ -4,7 +4,6 @@ require './lib/card'
 require './lib/guess'
 require './lib/deck'
 require './lib/round'
-require 'pry'
 
 class RoundTest < Minitest::Test
 
@@ -18,7 +17,7 @@ class RoundTest < Minitest::Test
     assert_instance_of Round, round
   end
 
-  def test_guesses
+  def test_it_has_a_guess
     card_1 = Card.new("6", "Spades")
     card_2 = Card.new("4", "Clubs")
     card_3 = Card.new("5", "Diamonds")

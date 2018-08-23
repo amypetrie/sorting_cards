@@ -23,4 +23,9 @@ class CardTest < Minitest::Test
     card_10 = Card.new("3", "Diamonds")
     assert_equal "3 of Diamonds", card_10.return_card
   end
+
+  def test_total_card_value
+    card_10 = Card.new("3", "Diamonds")
+    assert_equal 32, card_10.total_card_value
+  end
 end
